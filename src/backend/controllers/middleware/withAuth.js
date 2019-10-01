@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const secret = 'mysecretsshhh';
+const secret = process.env.SECRET;
 
 export default function(req, res, next) {
     const token = 

@@ -1,5 +1,4 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import React from 'react';
@@ -7,20 +6,17 @@ import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 import { createStore } from "redux";
 import { Provider } from "react-redux";
+import { connect } from './backend/models'
 
 import apiRouter from './backend/controllers'
 
 import App from './frontend/pages/App';
 
-const mongo_uri = 'mongodb://localhost/coachConnect';
+// if (process.env.NODE_ENV !== 'production'){
+//   require('dotenv').load()
+// }
 
-mongoose.connect(mongo_uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}, err => {
-  if (err) throw err;
-  else console.log('connected to database: ' + mongo_uri)
-})
+connect();
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 

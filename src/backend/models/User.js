@@ -30,5 +30,5 @@ UserSchema.methods.isCorrectPassword = function(password, callback) {
     })
 }
 
-let userModel = mongoose.model('User', UserSchema);
-export default userModel;
+let User = mongoose.model('User', UserSchema);
+export default User;

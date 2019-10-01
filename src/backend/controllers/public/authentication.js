@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
-import User from '../../models/User';
+import { User } from '../../models';
 
-const secret = 'mysecretsshhh';
+const secret = process.env.SECRET;
 
 export const register = (req, res) => {
     const { email, password } = req.body;
