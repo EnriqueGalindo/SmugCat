@@ -1,3 +1,5 @@
+.env
+
 logs
 *.log
 npm-debug.log*
@@ -10,4 +12,3 @@ build
 .env.development.local
 .env.test.local
 .env.production.local
-.env
