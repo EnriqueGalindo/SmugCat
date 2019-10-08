@@ -9,65 +9,83 @@ import {
   CardBody,
   CardFooter,
   Button,
-  ButtonGroup
+  ButtonGroup,
+  Nav,
+  NavItem
 } from "shards-react";
 
 export default function StoreProfile() {
   const [storeUser, setStoreUser] = useGlobal("storeUser");
   console.log(storeUser);
   return (
-    <Card
-      style={{
-        textAlign: "center",
-        textShadow: "text-shadow: 3px 5px 2px #474747",
-        color: "white"
-      }}
-    >
-      <CardImg
-        style={{ height: "150px" }}
-        variant="top"
-        src={storeUser.borderPictureLocation}
-      />
+    <>
+      <Nav
+        justified
+        style={{ backgroundColor: "#9267B3", height: "50px", fontSize: "25px" }}
+      >
+        <NavItem>
+          <NavLink active href="#">
+            Home
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="#">Profile</NavLink>
+        </NavItem>
+      </Nav>
 
-      <CardHeader style={{ backgroundColor: "#191970", fontSize: "40px" }}>
-        {storeUser.displayName}
-      </CardHeader>
-      <CardImg
-        style={{ width: "300px" }}
-        variant="top"
-        src={storeUser.pictureLocation}
-      />
-
-      <CardBody style={{ backgroundColor: "#5E2D79" }}>
-        About:
-        {storeUser.about}
-      </CardBody>
-
-      <div
+      <Card
         style={{
-          backgroundColor: "#5E2D79",
-          display: "flex",
-          justifyContent: "space-around"
+          textAlign: "center",
+          textShadow: "text-shadow: 3px 5px 2px #474747",
+          color: "white"
         }}
       >
-        <NavLink to="/edit">
-          <Button>Edit</Button>
-        </NavLink>
-        <Button
-        // onClick=
-        // {handleDeleteUser}
-        >
-          Delete
-        </Button>
+        <CardImg
+          style={{ height: "150px" }}
+          variant="top"
+          src={storeUser[0].borderPictureLocation}
+        />
+
+        <CardHeader style={{ backgroundColor: "#191970", fontSize: "40px" }}>
+          {storeUser[0].displayName}
+        </CardHeader>
+        <CardImg
+          style={{ width: "300px" }}
+          variant="top"
+          src={storeUser[0].pictureLocation}
+        />
+
+        <CardBody style={{ backgroundColor: "#5E2D79" }}>
+          About:
+          {storeUser[0].about}
+        </CardBody>
 
         <div
-        // onSubmit={this.handleUploadPicture}
+          style={{
+            backgroundColor: "#5E2D79",
+            display: "flex",
+            justifyContent: "space-around"
+          }}
         >
-          <div name="picture" type="file" />
-          <Button type="submit">Upload Picture</Button>
+          <NavLink to="/edit">
+            <Button>Edit</Button>
+          </NavLink>
+          <Button
+          // onClick=
+          // {handleDeleteUser}
+          >
+            Delete
+          </Button>
+
+          <div
+          // onSubmit={this.handleUploadPicture}
+          >
+            <div name="picture" type="file" />
+            <Button type="submit">Upload Picture</Button>
+          </div>
+          <div />
         </div>
-        <div />
-      </div>
-    </Card>
+      </Card>
+    </>
   );
 }
