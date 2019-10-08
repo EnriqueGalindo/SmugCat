@@ -9,7 +9,7 @@ import withAuth from '../../components/withAuth';
 const App = () => (
   <Switch>
     <Route exact path="/" component={Login} />
-    <Route exact path="/home" component={withAuth(Home)} />
+    <Route exact path="/home" component = {Home}/*component={withAuth(Home)}*/ />
   </Switch>
 );
 

@@ -17,6 +17,8 @@
     "express": "4.17.1",
     "history": "^4.10.1",
     "jsonwebtoken": "^8.5.1",
+    "mongod": "^2.0.0",
+    "mongodb": "^3.3.2",
     "mongoose": "^5.7.1",
     "razzle": "3.0.0",
     "react": "16.9.0",
