@@ -1,5 +1,13 @@
 import React from "react";
-import { Form, FormInput, FormGroup, Button } from "shards-react";
+import {
+  Form,
+  FormInput,
+  FormGroup,
+  Button,
+  Nav,
+  NavItem,
+  NavLink
+} from "shards-react";
 import { Link } from "react-router-dom";
 import { useGlobal } from "reactn";
 
@@ -63,10 +71,22 @@ export default function EditProfile(displayName, password, about) {
 
   return (
     <>
+      <Nav justified style={{ backgroundColor: "#9267B3" }}>
+        <NavItem>
+          <NavLink active href="#">
+            Home
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="#">Profile</NavLink>
+        </NavItem>
+      </Nav>
+
       <Form
         className="editProfileUser"
         onSubmit={handleSubmit}
-        style={{ width: "500px" }}
+        style={{ width: "500px", textAlign: "center" }}
+        justified
       >
         <FormGroup>
           <label>Change display name</label>
@@ -98,10 +118,11 @@ export default function EditProfile(displayName, password, about) {
         <Button theme="secondary" type="submit">
           Submit Change
         </Button>
+
+        <Link to="/store">
+          <Button theme="secondary">back to homepage</Button>
+        </Link>
       </Form>
-      <Link to="/store">
-        <Button theme="secondary">back to homepage</Button>
-      </Link>
     </>
   );
 }
