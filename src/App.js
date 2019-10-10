@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Switch, Route, Link }
   from "react-router-dom";
 
 import TestComponent from './components/testComponent'
+import Storefront from './components/storefront'
 
 
 class App extends Component {
@@ -36,20 +37,18 @@ class App extends Component {
     return(
       <React.Fragment>
         {/* Anything here styles EVERY page */}
-        <Alert theme="info">son been breakin sun with ray ban since cave man</Alert>
-        <p onClick={this.handleGenericClick}> CLICK ME </p>
-        <p>{this.props.another}</p>
-
         {/* Some of this will need to be protected -- is that part of MVP?? */}
-          {/* <Link to="/">Home</Link> */}
-          {/* <Link to="/other">Not Home</Link> */}
+
+        {/* <Link to="/">Home</Link> */}
+        {/* <Link to="/other">Not Home</Link> */}
+
         <Router>
           <Route exact path="/"/>
           <Route exact path="/profile"/>
           <Route exact path="/profile/nearMe"/>
           <Route exact path="/create/store"/>
           <Route exact path="/create/colllector"/>
-          <Route exact path="/storefront"/>
+          <Route exact path="/storefront" component={Storefront} />
           <Route exact path="/storefront/other"/>
 
           <Route exact path="/test" component={TestComponent} />
