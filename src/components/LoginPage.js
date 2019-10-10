@@ -1,9 +1,29 @@
 import React, { Component } from "react";
 import { Form, FormGroup, FormInput, Button } from "shards-react";
+import { connect } from "react-redux";
+import { loginThenGoToInventory as login } from "../actions";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css";
 
-export default class LoginPage extends Component {
+class LoginPage extends Component {
+  state = {
+    loginEmail: "",
+    loginPassword: ""
+  };
+
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleLogin = event => {
+    event.preventDefault();
+    this.props.login({
+      email: this.state.loginEmail,
+      password: this.state.loginPassword
+    });
+  };
+
   render() {
     return (
       <>
@@ -78,7 +98,7 @@ export default class LoginPage extends Component {
               borderRadius: "10px",
               backgroundColor: "#8B6B89"
             }}
-            // onSubmit={submitLogin}
+            onSubmit={this.handleLogin}
           >
                       
             <FormGroup>
@@ -86,10 +106,10 @@ export default class LoginPage extends Component {
                           <label htmlFor="#username">Username</label>
                           
               <FormInput
-                name="username"
+                name="loginEmail"
                 type="text"
-                // value={loginEmail}
-                // onChange={e => setLoginEmail(e.target.value)}
+                value={this.state.loginEmail}
+                onChange={this.handleChange}
                 id="#username"
                 placeholder="Username"
               />
@@ -98,10 +118,10 @@ export default class LoginPage extends Component {
                           <label htmlFor="#password">Password</label>
                           
               <FormInput
-                name="password"
+                name="loginPassword"
                 type="password"
-                // value={loginPassword}
-                // onChange={e => setLoginPassword(e.target.value)}
+                value={this.state.loginPassword}
+                onChange={this.handleChange}
                 id="#password"
                 placeholder="Password"
               />
@@ -113,12 +133,20 @@ export default class LoginPage extends Component {
               </Button>
                         
             </FormGroup>
-                    
-          </Form>
+            {this.props.loginError && <p>{this.props.loginError}</p>}
                 
+          </Form>
+
         </div>
             
       </>
     );
   }
 }
+
+export default connect(
+  state => ({
+    loginError: state.auth.loginError
+  }),
+  { login }
+)(LoginPage);

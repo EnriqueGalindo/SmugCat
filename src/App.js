@@ -1,35 +1,11 @@
 import React, { Component } from "react";
-import { connect } from 'react-redux'
-
-import { updateShit } from './actions/another.actions'
-
-// import { Alert } from "shards-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css"
+import { Route } from "react-router-dom";
 
-import { BrowserRouter as Router, Route } 
-  from "react-router-dom";
-
-import TestComponent from './components/testComponent'
-import LoginPage from "./components/LoginPage";
-
+import { TestComponent, LoginPage, Inventory } from './components'
 
 class App extends Component {
-  constructor(props){
-    super(props)
-    //So we can use 'this' keword in the onUpdateUser function
-    //We need to do this for every function we define
-    this.handleGenericClick = 
-      this.handleGenericClick.bind(this)
-  }
-
-  handleGenericClick(){
-    this.props.updateShit()
-  }
-  
-
-
-
   //This is the Table of Contents for our app.
   //Unless you know what you're about to break, please don't change them here.
   render() {
@@ -44,8 +20,8 @@ class App extends Component {
         {/* Some of this will need to be protected -- is that part of MVP?? */}
           {/* <Link to="/">Home</Link> */}
           {/* <Link to="/other">Not Home</Link> */}
-        <Router>
           <Route exact path="/" component={LoginPage}/>
+          <Route exact path="/inventory" component={Inventory} />
           <Route exact path="/profile"/>
           <Route exact path="/profile/nearMe"/>
           <Route exact path="/create/store"/>
@@ -54,20 +30,9 @@ class App extends Component {
           <Route exact path="/storefront/other"/>
 
           <Route exact path="/test" component={TestComponent} />
-        </Router>
       </React.Fragment>
     )
   }
 }
 
-
-const mapStateToProps = state => ({
-    another: state.another,
-    user: state.user
-
-  })
-const mapActionsToProps = {
-  updateShit: updateShit
-}
-
-export default connect(mapStateToProps, mapActionsToProps)(App)
+export default App;
