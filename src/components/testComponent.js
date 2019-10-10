@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, 
+import {Alert, Button, 
         Form, FormInput, FormGroup,
         Container, Row, Col,
         Card, CardHeader, CardTitle, CardImg, CardBody, CardFooter
@@ -11,10 +11,11 @@ export default class TestComponent extends Component{
     render(){
         return(
             <React.Fragment>
+
             <div class="container">
             <p>Gonna need to hook the component to state -- map props/actaion to dispatch</p>
+            <Alert theme="danger">Testing</Alert>
             <Form>
-
                 <FormGroup>
                     <label htmlFor="#username">Username</label>
                     <FormInput id="#username" placeholder="Username" />
@@ -24,7 +25,6 @@ export default class TestComponent extends Component{
                     <label htmlFor="#password">Password</label>
                     <FormInput type="password" id="#password" placeholder="Password" />
                 </FormGroup>
-
             </Form>
 
             <p>Since we already have users in the db, 
@@ -34,21 +34,27 @@ export default class TestComponent extends Component{
                 For demo we could just put the username and pass in that we want people
                 to think we created.
             </p>
+
             <Button outline theme="success">Re-Rout me!!</Button>
+            
             <hr></hr>
 
             <Container>
                 <Row>
-                    
                     <Col>
                         <Card>
-                            <CardHeader>CardHeader</CardHeader>
+                            <CardHeader style={ {textAlign : 'center'} }>Card Header</CardHeader>
                             <CardImg src="https://place-hold.it/300x200" />
                             <CardBody>
-                                <CardTitle>CardTitle</CardTitle>
-                                <Button>Buy it!</Button>
+                                <CardTitle style={ {textAlign: 'center'} }>Card Title</CardTitle>
+                                <Container>
+                                    <Row style={{textAlign:'center'}}>
+                                        <Col><Button theme="info">Buy it!</Button></Col>
+                                        <Col><Button theme="success">Sell it!</Button></Col>
+                                    </Row>
+                                </Container>
                             </CardBody>
-                            <CardFooter>CardFooter</CardFooter>
+                            <CardFooter style={{textAlign : 'center'}}>Card Footer</CardFooter>
                         </Card>
                     </Col>
 
@@ -76,18 +82,22 @@ export default class TestComponent extends Component{
                         </Card>
                     </Col>
 
+                </Row>
+
+                <hr></hr>
+
+                <Row>
                     <Col>
                         <Card>
                             <CardHeader>Looking</CardHeader>
                             <CardImg src="https://place-hold.it/300x200" />
                             <CardBody>
                                 <CardTitle>For</CardTitle>
-                                <Button>Buy it!</Button>
+                                <Button outline>Buy it!</Button>
                             </CardBody>
                             <CardFooter>Ideas</CardFooter>
                         </Card>
                     </Col>
-
                 </Row>
             </Container>
 

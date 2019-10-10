@@ -3,17 +3,17 @@ const mongoose = require("mongoose")
 const saltrounds = 10; //Password hashing.
 
 const UserSchema = new mongoose.Schema({
-    email: { type: String, required: true, unique: true, trim: true },
-    password: { type: String, required: true, trim: true },
+    email: { type: String, required: true, sparse: true, trim: true },
+    password: { type: String, required: true, trim: true, unique: false, sparse: false },
     cards: {
         type: [
             {
-            cardName: { type: String, required: true },
+            cardName: { type: String, required: true, unique: false, sparse: false },
             locations: {
                 type: [
                 {
-                    location: { type: String, required: true },
-                    quantity: { type: Number, required: true }
+                    location: { type: String, required: true, unique: false, sparse: false },
+                    quantity: { type: Number, required: true, unique: false, sparse: false }
                 }
         ],
         required: true
