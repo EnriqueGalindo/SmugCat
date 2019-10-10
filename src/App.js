@@ -3,14 +3,15 @@ import { connect } from 'react-redux'
 
 import { updateShit } from './actions/another.actions'
 
-import { Alert } from "shards-react";
+// import { Alert } from "shards-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css"
 
-import { BrowserRouter as Router, Switch, Route, Link } 
+import { BrowserRouter as Router, Route } 
   from "react-router-dom";
 
 import TestComponent from './components/testComponent'
+import LoginPage from "./components/LoginPage";
 
 
 class App extends Component {
@@ -36,15 +37,15 @@ class App extends Component {
     return(
       <React.Fragment>
         {/* Anything here styles EVERY page */}
-        <Alert theme="info">son been breakin sun with ray ban since cave man</Alert>
+        {/* <Alert theme="info">son been breakin sun with ray ban since cave man</Alert>
         <p onClick={this.handleGenericClick}> CLICK ME </p>
-        <p>{this.props.another}</p>
+        <p>{this.props.another}</p> */}
 
         {/* Some of this will need to be protected -- is that part of MVP?? */}
           {/* <Link to="/">Home</Link> */}
           {/* <Link to="/other">Not Home</Link> */}
         <Router>
-          <Route exact path="/"/>
+          <Route exact path="/" component={LoginPage}/>
           <Route exact path="/profile"/>
           <Route exact path="/profile/nearMe"/>
           <Route exact path="/create/store"/>
