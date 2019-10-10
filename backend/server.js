@@ -6,6 +6,8 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
 
+
+//From here to Routes is just mongoDB setup
 // app.use(cors()); //It could come into play later -- keep incase
 app.use(express.json());
 
@@ -20,12 +22,37 @@ connection.once('open', () => {
 })
 
 
-//Routs
+
+//Routes
+//This is most likely the section ur looking to change
+
+
+//Routs to Views
+const loginRouter = require('./routes/login');
+app.use('/', loginRouter);
+
+const createAccountRouter = require('./routes/createAccount');
+//Whats the best name for this?
+app.use('/create', createAccountRouter);
+
+const storefrontRouter = require('./routes/storefront');
+app.use('/storefront', storefrontRouter);
+
+const profileRouter = require('./routes/profile');
+app.use('/profile', profileRouter);
+
+
+
+//Routes for the mongoAPI
 const userRouter = require('./routes/user');
 app.use('/user', userRouter);
 
 
 
+
+
+
+//If we don't have this then we cant display anything:
 app.listen(port, () => {
     console.log(`Wu-Node: ${port}`);
 });

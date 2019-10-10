@@ -1,63 +1,61 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux'
+
 import { updateShit } from './actions/another.actions'
+
 import { Alert } from "shards-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css"
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
 
+import { BrowserRouter as Router, Switch, Route, Link } 
+  from "react-router-dom";
+
+import TestComponent from './components/testComponent'
 
 
 class App extends Component {
   constructor(props){
     super(props)
     //So we can use 'this' keword in the onUpdateUser function
+    //We need to do this for every function we define
     this.handleGenericClick = 
       this.handleGenericClick.bind(this)
   }
-  
+
   handleGenericClick(){
     this.props.updateShit()
   }
   
-  
+
+
+
+  //This is the Table of Contents for our app.
+  //Unless you know what you're about to break, please don't change them here.
   render() {
     console.log(this.props)
     return(
       <React.Fragment>
-      <Router>
-        <Link to="/">Home</Link>
-        <Link to="/other">Not Home</Link>
+        {/* Anything here styles EVERY page */}
+        <Alert theme="info">son been breakin sun with ray ban since cave man</Alert>
+        <p onClick={this.handleGenericClick}> CLICK ME </p>
+        <p>{this.props.another}</p>
 
-        <Switch>
-          <Route exact path="/">
-            <p>Ain't that somehin</p>
-          </Route>
-          
-          <Route exact path="/other">
-            <p>That's sure something else</p>
-          </Route>
-        </Switch>
-      </Router>
+        {/* Some of this will need to be protected -- is that part of MVP?? */}
+          {/* <Link to="/">Home</Link> */}
+          {/* <Link to="/other">Not Home</Link> */}
+        <Router>
+          <Route exact path="/"/>
+          <Route exact path="/profile"/>
+          <Route exact path="/profile/nearMe"/>
+          <Route exact path="/create/store"/>
+          <Route exact path="/create/colllector"/>
+          <Route exact path="/storefront"/>
+          <Route exact path="/storefront/other"/>
 
-      <Alert>son been breakin sun with ray ban since cave man</Alert>
-      <p>I'M READY TO USE THE BACK END APIS!</p>
-      <br></br>
-      <p 
-        onClick={this.handleGenericClick}> 
-          CLICK ME 
-      </p>
-      
-      <p>{this.props.another}</p>
-
+          <Route exact path="/test" component={TestComponent} />
+        </Router>
       </React.Fragment>
     )
-
   }
 }
 
