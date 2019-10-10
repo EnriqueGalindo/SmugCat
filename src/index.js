@@ -1,31 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
-// import express { Router }from 'express'
-import allReducers from '../src/reducers/index'
-import * as serviceWorker from './serviceWorker';
-import App from './App';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import * as serviceWorker from "./serviceWorker";
+import App from "./App";
+import "./index.css";
+import configureStore, { history } from "./configureStore";
+import { ConnectedRouter } from "connected-react-router";
 
-
-
-const store = createStore(
-    allReducers, 
-    {
-    products: ["RZA", "GZA", "ODB", "Mef", "Math", "Cap"],
-    another: "Off to the 36th chamber"
-    },
-    //This is what makes the dev tools show up correctly.
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
+const store = configureStore({});
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
+  </Provider>,
 
-    document.getElementById('root'));
+  document.getElementById("root")
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
