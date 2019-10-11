@@ -133,7 +133,7 @@ class LoginPage extends Component {
               </Button>
                         
             </FormGroup>
-            {this.props.loginError && <p>{this.props.loginError}</p>}
+            {/* {this.props.loginError && <p>{this.props.loginError}</p>} */}
                 
           </Form>
 
