@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css"
 import { Route } from "react-router-dom";
 
-import { TestComponent, LoginPage, Inventory } from './components'
+import { TestComponent, LoginPage, Inventory, Profile, Storefront } from './components'
 
 class App extends Component {
   //This is the Table of Contents for our app.
@@ -22,12 +22,12 @@ class App extends Component {
           {/* <Link to="/other">Not Home</Link> */}
           <Route exact path="/" component={LoginPage}/>
           <Route exact path="/inventory" component={Inventory} />
-          <Route exact path="/profile"/>
-          <Route exact path="/profile/nearMe"/>
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/profile/nearMe" component={Profile}/>
           <Route exact path="/create/store"/>
           <Route exact path="/create/colllector"/>
-          <Route exact path="/storefront"/>
-          <Route exact path="/storefront/other"/>
+          <Route exact path="/storefront" component={Storefront} />
+          <Route exact path="/storefront/other"component={Storefront} />
 
           <Route exact path="/test" component={TestComponent} />
       </React.Fragment>

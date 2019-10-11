@@ -26,7 +26,7 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <>
+      <React.Fragment>
               
         <div
           style={{
@@ -139,14 +139,17 @@ class LoginPage extends Component {
 
         </div>
             
-      </>
+      </React.Fragment>
     );
   }
 }
 
 export default connect(
   state => ({
+    //Mapping State to props
     loginError: state.auth.loginError
   }),
+
+  //Map actions to props
   { login }
 )(LoginPage);
