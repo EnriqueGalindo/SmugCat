@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Image, Navbar, NavDropdown, Nav, Jumbotron } from 'react-bootstrap';
+import { Container, Row, Col, Image, Navbar, NavDropdown, Nav, Jumbotron, InputGroup, FormControl } from 'react-bootstrap';
 import {
     Card,
     CardHeader,
@@ -76,10 +76,31 @@ export default class Storefront extends Component {
             <Image src={imgString} roundedCircle />
             </Col>
             <Col md={4}>
-            <p>This will be blank.</p>
+            <h2>Store name or something</h2>
+            <small>Perhaps the locations</small>
+            <br></br>
+            <small>Like on a letter, if you knwo what that is</small>
+            <br></br>
+            <br></br>
+            <p>And there here is something about the store and how crazy
+            one of the regulars is and various warning about things you
+            may find in on or around the boxes...
+            </p>
             </Col>
             <Col md={4}>
-            <p>This will be a search</p>
+            
+
+            <InputGroup className="mb-3">
+            <InputGroup.Prepend>
+            <InputGroup.Text id="inputGroup-sizing-default">Search: </InputGroup.Text>
+            </InputGroup.Prepend>
+            <FormControl
+            aria-label="Default"
+            aria-describedby="inputGroup-sizing-default"/>
+            </InputGroup>
+
+
+
             </Col>
             </Row>
 
