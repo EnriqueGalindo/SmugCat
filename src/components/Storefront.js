@@ -8,6 +8,8 @@ export default class Storefront extends Component {
         return (
         <React.Fragment>
             <p>This is your Storefront</p>
+            <p>This is your Storefront</p>
+            <p>This is your Storefront</p>
         </React.Fragment>
     );
     }
