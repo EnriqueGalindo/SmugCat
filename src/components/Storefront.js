@@ -1,5 +1,14 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Image, Navbar, NavDropdown, Nav, Jumbotron } from 'react-bootstrap';
+import {
+    Card,
+    CardHeader,
+    CardTitle,
+    CardImg,
+    CardBody,
+    CardFooter,
+    Button
+    } from "shards-react";
 // import { connect } from "react-redux";
 
 //I'm sure there is a way to do this with import
@@ -8,6 +17,18 @@ const myModule = require('./imgString')
 const imgString = myModule.imgString
 
 export default class Storefront extends Component {
+    constructor(props) {
+        super(props);
+        this.toggle = this.toggle.bind(this);
+        this.state = { open: false };
+    }
+
+    toggle() {
+        this.setState({
+            open: !this.state.open
+        });
+    }
+
     render() {
         return (
         <React.Fragment>
@@ -59,6 +80,84 @@ export default class Storefront extends Component {
             </Col>
             <Col md={4}>
             <p>This will be a search</p>
+            </Col>
+            </Row>
+
+            <Row>
+            <Col md={4}>
+            <Card style={{ maxWidth: "300px" }}>
+            <CardBody>
+            <CardTitle><Button>ImgOfCardOnHover</Button></CardTitle>
+            <p>Perhaps something about the card or that shaved ape</p>
+            </CardBody>
+            <CardFooter>
+            <Button>Buy</Button>
+            <Button>Sell</Button>
+            </CardFooter>
+            </Card>
+            </Col>
+            <Col md={4}>
+            <Card style={{ maxWidth: "300px" }}>
+            <CardBody>
+            <CardTitle><Button>ImgOfCardOnHover</Button></CardTitle>
+            <p>Perhaps something about the card or that shaved ape</p>
+            </CardBody>
+            <CardFooter>
+            <Button>Buy</Button>
+            <Button>Sell</Button>
+            </CardFooter>
+            </Card>
+            </Col>
+            <Col md={4}>
+            <Card style={{ maxWidth: "300px" }}>
+            <CardBody>
+            <CardTitle><Button>ImgOfCardOnHover</Button></CardTitle>
+            <p>Perhaps something about the card or that shaved ape</p>
+            </CardBody>
+            <CardFooter>
+            <Button>Buy</Button>
+            <Button>Sell</Button>
+            </CardFooter>
+            </Card>
+            </Col>
+            </Row>
+            
+            <Row>
+            <Col md={4}>
+            <Card style={{ maxWidth: "300px" }}>
+            <CardBody>
+            <CardTitle><Button>ImgOfCardOnHover</Button></CardTitle>
+            <p>Perhaps something about the card or that shaved ape</p>
+            </CardBody>
+            <CardFooter>
+            <Button>Buy</Button>
+            <Button>Sell</Button>
+            </CardFooter>
+            </Card>
+            </Col>
+            <Col md={4}>
+            <Card style={{ maxWidth: "300px" }}>
+            <CardBody>
+            <CardTitle><Button>ImgOfCardOnHover</Button></CardTitle>
+            <p>Perhaps something about the card or that shaved ape</p>
+            </CardBody>
+            <CardFooter>
+            <Button>Buy</Button>
+            <Button>Sell</Button>
+            </CardFooter>
+            </Card>
+            </Col>
+            <Col md={4}>
+            <Card style={{ maxWidth: "300px" }}>
+            <CardBody>
+            <CardTitle><Button>ImgOfCardOnHover</Button></CardTitle>
+            <p>Perhaps something about the card or that shaved ape</p>
+            </CardBody>
+            <CardFooter>
+            <Button>Buy</Button>
+            <Button>Sell</Button>
+            </CardFooter>
+            </Card>
             </Col>
             </Row>
 
