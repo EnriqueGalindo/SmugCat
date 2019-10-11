@@ -7,6 +7,8 @@ import "./index.css";
 import configureStore, { history } from "./configureStore";
 import { ConnectedRouter } from "connected-react-router";
 
+
+
 const store = configureStore({});
 
 ReactDOM.render(
