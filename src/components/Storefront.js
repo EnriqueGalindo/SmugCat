@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Image } from 'react-bootstrap';
+import { Container, Row, Col, Image, Navbar, NavDropdown, Nav, Jumbotron } from 'react-bootstrap';
 // import { connect } from "react-redux";
 
 //I'm sure there is a way to do this with import
@@ -11,20 +11,59 @@ export default class Storefront extends Component {
     render() {
         return (
         <React.Fragment>
-            <Container class="container" style={{border: "1px solid black", minHeight: "420px"}}>
-            <Row>
-                <Col md={4}>
-                    <Image src={imgString} roundedCircle />
-                </Col>
-                <Col md={4}>
-                    <p>This will be blank.</p>
-                </Col>
-                <Col md={4}>
-                    <p>This will be a search</p>
-                </Col>
-            </Row>
-            </Container>
+            <Container class="container">
 
+            <Jumbotron>
+            <h1>Hello, world!</h1>
+            <p>This is a simple hero unit, a simple jumbotron-style component for calling 
+            extra attention to featured content or information.
+            </p>
+            </Jumbotron>
+
+
+
+
+
+
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto">
+            <Nav.Link href="#features">Features</Nav.Link>
+            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+            </NavDropdown>
+            </Nav>
+            <Nav>
+            <Nav.Link href="#deets">More deets</Nav.Link>
+            <Nav.Link eventKey={2} href="#memes">
+                Dank memes
+            </Nav.Link>
+            </Nav>
+            </Navbar.Collapse>
+            </Navbar>
+
+
+            <Row>
+            <Col md={4}>
+            <Image src={imgString} roundedCircle />
+            </Col>
+            <Col md={4}>
+            <p>This will be blank.</p>
+            </Col>
+            <Col md={4}>
+            <p>This will be a search</p>
+            </Col>
+            </Row>
+
+
+            </Container>
         </React.Fragment>
     );
     }
