@@ -25,20 +25,18 @@ class LoginPage extends Component {
   };
 
   render() {
+    console.log(this.props.login)
     return (
       <React.Fragment>
               
-        <div
-          style={{
+        <div style={{
             display: "flex",
             flexDirection: "row",
             background: "#D0D0BD",
             color: "#D0D0BD"
-          }}
-        >
+          }}>
                   
-          <Form
-            style={{
+          <Form style={{
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -48,46 +46,29 @@ class LoginPage extends Component {
               borderRadius: "10px",
               backgroundColor: "#506485"
             }}
-            // onSubmit={submitRegister}
-          >
+            // onSubmit={submitRegister} 
+            >
                       
             <FormGroup>
-                          <h1 style={{ color: "#D4848F" }}>Register</h1>
-                          <label htmlFor="#username">Username</label>
+            <h1 style={{ color: "#D4848F" }}>Register</h1>
+            
+            <label htmlFor="#username">Username</label>
+              <FormInput name="username" type="text"
+                // value={registerEmail} onChange={e => setRegisterEmail(e.target.value)}
+                id="#username" placeholder="Username" />
                           
-              <FormInput
-                name="username"
-                type="text"
-                // value={registerEmail}
-                // onChange={e => setRegisterEmail(e.target.value)}
-                id="#username"
-                placeholder="Username"
-              />
+            <label htmlFor="#password">Password</label>
                           
-              <br />
-                          <label htmlFor="#password">Password</label>
+              <FormInput name="password" type="password"
+                // value={registerPassword} onChange={e => setRegisterPassword(e.target.value)}
+                id="#password" placeholder="Password" />
                           
-              <FormInput
-                name="password"
-                type="password"
-                // value={registerPassword}
-                // onChange={e => setRegisterPassword(e.target.value)}
-                id="#password"
-                placeholder="Password"
-              />
-                          
-              <br />
-                          
-              <Button type="submit" theme="success">
-                              Log In             
-              </Button>
+              <Button type="submit" theme="success"> Log In </Button>
                         
             </FormGroup>
-                    
           </Form>
                   
-          <Form
-            style={{
+          <Form style={{
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
@@ -102,54 +83,50 @@ class LoginPage extends Component {
           >
                       
             <FormGroup>
-                          <h1 style={{ color: "#4A999C" }}>Login</h1>
-                          <label htmlFor="#username">Username</label>
+              <h1 style={{ color: "#4A999C" }}>Login</h1>
+              <label htmlFor="#username">Username</label>
+                          
+              <FormInput name="loginEmail" type="text"
+                value={this.state.loginEmail} onChange={this.handleChange}
+                id="#username" placeholder="Username" />
+                          
+              <label htmlFor="#password">Password</label>
                           
               <FormInput
-                name="loginEmail"
-                type="text"
-                value={this.state.loginEmail}
-                onChange={this.handleChange}
-                id="#username"
-                placeholder="Username"
-              />
+                name="loginPassword" type="password"
+                value={this.state.loginPassword} onChange={this.handleChange}
+                id="#password" placeholder="Password" />
                           
-              <br />
-                          <label htmlFor="#password">Password</label>
-                          
-              <FormInput
-                name="loginPassword"
-                type="password"
-                value={this.state.loginPassword}
-                onChange={this.handleChange}
-                id="#password"
-                placeholder="Password"
-              />
-                          
-              <br />
-                          
-              <Button type="submit" theme="success">
-                              Log In             
-              </Button>
-                        
+              <Button type="submit" theme="success"> Log In </Button>
             </FormGroup>
-            {this.props.loginError && <p>{this.props.loginError}</p>}
-                
-          </Form>
 
+            {/* {this.props.loginError && <p>{this.props.loginError}</p>} */}
+
+          </Form>
         </div>
-            
       </React.Fragment>
     );
   }
 }
 
-export default connect(
-  state => ({
-    //Mapping State to props
-    loginError: state.auth.loginError
-  }),
+// export default connect(
+//   state => ({
+//     //Mapping State to props
+//     loginError: state.auth.loginError
+//   }),
 
-  //Map actions to props
-  { login }
-)(LoginPage);
+//   //Map actions to props
+//   { login }
+// )(LoginPage);
+
+
+const mapStateToProps = state => {
+  return {
+    loginError: state.auth.loginError
+  };
+};
+const mapActionsToProps = {
+  login: login
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(LoginPage);

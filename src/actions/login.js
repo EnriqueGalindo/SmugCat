@@ -17,10 +17,16 @@ const login = loginData => dispatch => {
   })
     .then(handleJsonResponse)
     .then(user => {
-      return dispatch({ type: LOGIN_USER_SUCCESS, payload: user });
+      return dispatch({ 
+        type: LOGIN_USER_SUCCESS, 
+        payload: user 
+      });
     })
     .catch(err => {
-      return Promise.reject(dispatch({ type: LOGIN_USER_FAIL, payload: err }));
+      return Promise.reject(dispatch({ 
+        type: LOGIN_USER_FAIL, 
+        payload: err 
+      }));
     });
 };
 
