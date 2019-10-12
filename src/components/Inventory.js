@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { getCards } from "../actions"
 
 // import {} from "shards-react";
 // import {} from 'react-bootstrap';
@@ -8,9 +9,20 @@ import "shards-ui/dist/css/shards.min.css"
 
 
 class Inventory extends Component {
+
+  // componentDidMount() {
+  //   this.props.getCards();
+  // }
+
   render() {
     return (
       <React.Fragment>
+        {/* {console.log(
+          this.props.user.cards.forEach(card => console.log(card.locations[0].location))
+        )} */}
+        {
+          this.props.user.cards.map(card => console.log(card.locations[0]))
+        }
 
         <h3>This is how we get the card names: </h3>
         <h4>{JSON.stringify(this.props.user.email)}</h4>
@@ -62,5 +74,12 @@ const mapStateToProps = state => {
     user: state.auth.login
   };
 };
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     getCards: () => dispatch(getCards())
+//   }
+// }
+
 
 export default connect(mapStateToProps)(Inventory);

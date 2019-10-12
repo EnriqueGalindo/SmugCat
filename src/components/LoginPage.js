@@ -99,9 +99,8 @@ class LoginPage extends Component {
                           
               <Button type="submit" theme="success"> Log In </Button>
             </FormGroup>
-
             {/* {this.props.loginError && <p>{this.props.loginError}</p>} */}
-
+                
           </Form>
         </div>
       </React.Fragment>
