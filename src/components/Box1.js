@@ -2,44 +2,55 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getCards } from "../actions"
 
-// import {} from "shards-react";
-// import {} from 'react-bootstrap';
+import {
+    Card,
+    CardHeader,
+    CardBody,
+    CardTitle
+} from "shards-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css"
 
 
-export default class Box1 extends Component {
-    getCardsatLocation  (cards, boxName)  {
-        let cardNameArray = []
-        let quantityArray = []
-        let cardObj = {}
-        let final = []
-      
-        for (let i = 0; i < cards.length; i++) {
-          for (let j = 0; j < cards[i].locations.length; j++) {
-            if (cards[i].locations[j].location == boxName) {
-              cardNameArray.push(cards[i].cardName)
-              quantityArray.push(cards[i].locations[j].quantity)
-              
-            }
-          }
-        }
-        for(let i = 0; i< cardNameArray.length; i++){
-            cardObj.cardName = cardNameArray[i];
-            cardObj.quantity = quantityArray[i];
-            final.push(cardObj)
-        }
-        return  
-      }
+class Box1 extends Component {
+    
     render() {
         return (
-        <React.Fragment>
-           <div>
-               {() => this.getCardsatLocation(this.props.user.cards, "box1")}
-           </div>
-           
-        </React.Fragment>
-    );
+            <React.Fragment>
+                <div>
+                    {/* {() => this.getCardsatLocation(this.props.user.cards, "box1")} */}
+                    {this.props.user.cards.map(card => {
+                        return (
+                            card.locations.map((location) => {
+                                //checks the whole locations array to see if any cards are in box1
+                                if (location.location === 'box1') {
+                                    return (
+                                        <Card style={{ maxWidth: "300px", margin:"20px" }}>
+                                            <CardHeader>Card Name: {card.cardName}</CardHeader>
+                                            <CardBody>
+                                                <CardTitle>
+                                                    Quantity: {location.quantity}
+                                                </CardTitle>
+                                            </CardBody>
+                                        </Card>
+                                    )
+                                }
+                            })
+
+
+                        )
+                    })}
+                </div>
+
+            </React.Fragment>
+        );
     }
 }
- 
+
+const mapStateToProps = state => {
+    return {
+        user: state.auth.login
+    };
+};
+
+export default connect(mapStateToProps)(Box1);
