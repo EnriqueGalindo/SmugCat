@@ -43,7 +43,7 @@ export default class SearchUsers extends Component {
 
   componentDidMount() {
     fetch (apiDomain + "/user").then(handleJsonResponse).then(users => {
-      this.setState({users, listOfUsers: users})
+      this.setState({users, listOfUsers:users})
     }) 
   }
 
