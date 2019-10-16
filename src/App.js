@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css"
 import { Route } from "react-router-dom";
 
-import { TestComponent, LoginPage, Inventory, Profile, Storefront, Box1, Box2 } from './components'
+import { TestComponent, LoginPage, Inventory, Profile, Storefront } from './components'
 
 class App extends Component {
   //This is the Table of Contents for our app.
@@ -22,8 +22,6 @@ class App extends Component {
           {/* <Link to="/other">Not Home</Link> */}
           <Route exact path="/" component={LoginPage}/>
           <Route exact path="/inventory" component={Inventory} />
-          <Route exact path="/box1" component={Box1} />
-          <Route exact path="/box2" component={Box2} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/profile/nearMe" component={Profile}/>
           <Route exact path="/create/store"/>

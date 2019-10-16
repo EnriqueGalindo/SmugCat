@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Modal, ModalBody, ModalHeader } from "shards-react";
-import Box1 from "./Box1"
+import Box from "./Box"
 
 export default class BasicModalExample extends React.Component {
   constructor(props) {
@@ -19,11 +19,11 @@ export default class BasicModalExample extends React.Component {
     const { open } = this.state;
     return (
       <div>
-        <Button onClick={this.toggle}>Box1</Button>
+        <Button onClick={this.toggle}>{this.props.boxName}</Button>
         <Modal open={open} toggle={this.toggle}>
           <ModalHeader>Header</ModalHeader>
           <ModalBody style={{ maxHeight: "calc(100vh - 200px)",
-    overflowY: "auto" }}><Box1/></ModalBody>
+    overflowY: "auto" }}><Box boxName={this.props.boxName}/></ModalBody>
         </Modal>
       </div>
     );
