@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-<<<<<<< src/components/Inventory.js
 import CustardModal from "./CustardModal"
-=======
 import { Container, Row, Col, 
   Image, Navbar, NavDropdown, Nav, 
   Jumbotron, InputGroup, FormControl 
@@ -12,7 +10,6 @@ import {
   Card, CardHeader, CardTitle, CardImg, CardBody, CardFooter,
   FormInput, FormRadio
   } from "shards-react";
->>>>>>> src/components/Inventory.js
 
 // import {} from "shards-react";
 // import {} from 'react-bootstrap';
