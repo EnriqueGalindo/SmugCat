@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getCards } from "../actions"
-import Box1 from "./Box1"
-import CustardModal1 from "./CustardModal1"
-import CustardModal2 from "./CustardModal2"
+<<<<<<< src/components/Inventory.js
+import CustardModal from "./CustardModal"
+=======
 import { Container, Row, Col, 
   Image, Navbar, NavDropdown, Nav, 
   Jumbotron, InputGroup, FormControl 
@@ -13,15 +12,29 @@ import {
   Card, CardHeader, CardTitle, CardImg, CardBody, CardFooter,
   FormInput, FormRadio
   } from "shards-react";
+>>>>>>> src/components/Inventory.js
 
 // import {} from "shards-react";
 // import {} from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css"
+import { differenceInCalendarQuarters } from "date-fns";
 
 
 class Inventory extends Component {
-
+  getBoxes() {
+    const boxNames = []
+    this.props.user.cards.forEach(card => {
+      card.locations.forEach(location =>{
+        if(boxNames.includes(location.location)){//no operation
+        }
+        else{
+          boxNames.push(location.location)
+        }
+      })
+    });
+    return boxNames
+  }
   // componentDidMount() {
   //   this.props.getCards();
   // }
@@ -47,10 +60,13 @@ class Inventory extends Component {
                 </Nav>
             </Navbar>
         <div>
-        {/*this is a modal for box 1 */}
+          {this.getBoxes().map(boxName => {
+            return <CustardModal boxName={boxName}/>
+          })}
+        {/* this is a modal for box 1
         <CustardModal1/>
-        {/*this is a modal for box 2 */}
-        <CustardModal2/>
+        {/*this is a modal for box 2 
+        <CustardModal2/> */}
         </div>
 
 
@@ -72,12 +88,5 @@ const mapStateToProps = state => {
     user: state.auth.login
   };
 };
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     getCards: () => dispatch(getCards())
-//   }
-// }
-
 
 export default connect(mapStateToProps)(Inventory);
