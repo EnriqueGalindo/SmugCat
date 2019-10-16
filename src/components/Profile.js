@@ -75,15 +75,16 @@ class Profile extends Component {
             </Jumbotron>
 
             <Navbar>
-              <Nav className="mr-auto">
-                <Nav.Link href="/profile">Upcoming</Nav.Link>
-                <Nav.Link href="/profile">Near Me</Nav.Link>
-                <Nav.Link href="/profile">All Events</Nav.Link>
-              </Nav>
-              <Nav>
-                <Nav.Link href="/inventory">My Inventory</Nav.Link>
-                <Nav.Link href="/">Logout</Nav.Link>
-              </Nav>
+                <Nav className="mr-auto">
+                    <Nav.Link href="*">Upcoming</Nav.Link>
+                    <Nav.Link href="*">Near Me</Nav.Link>
+                    <Nav.Link href="*">All Events</Nav.Link>
+                </Nav>
+                <Nav>
+                    <Nav.Link href="/inventory">My Inventory</Nav.Link>
+                    <Nav.Link href="/profile/search">Search Users</Nav.Link>
+                    <Nav.Link href="/">Logout</Nav.Link>
+                </Nav>
             </Navbar>
             <hr style={{ marginBottom: "111.111px" }}></hr>
 

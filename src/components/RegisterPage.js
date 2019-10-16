@@ -1,32 +1,24 @@
 import React, { Component } from "react";
 import { Form, FormGroup, FormInput, Button } from "shards-react";
-import { connect } from "react-redux";
-import { loginThenGoToInventory as login } from "../actions";
 import { Link } from "react-router-dom";
+import { loginThenGoToInventory as login } from "../actions";
+import { connect } from "react-redux";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "shards-ui/dist/css/shards.min.css";
-
-class LoginPage extends Component {
-  state = {
-    loginEmail: "",
-    loginPassword: ""
-  };
+class RegisterForm extends Component {
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleLogin = event => {
+  handleRegister = event => {
     event.preventDefault();
     this.props.login({
-      email: this.state.loginEmail,
-      password: this.state.loginPassword
+      email: this.state.email,
+      password: this.state.password
     });
   };
 
   render() {
-    console.log(this.props.login);
     return (
       <>
         <Form
@@ -34,13 +26,14 @@ class LoginPage extends Component {
             display: "flex",
             height: "100vh",
             width: "100vw",
-            backgroundColor: "#8B6B89",
+            backgroundColor: "#506485",
             color: "#D0D0BD",
             border: "25px solid black",
             boxSizing: "box-sizing"
           }}
-          onSubmit={this.handleLogin}
+          onSubmit={this.handleRegister}
         >
+                    
           <FormGroup
             style={{
               display: "flex",
@@ -48,17 +41,16 @@ class LoginPage extends Component {
               flexDirection: "column",
               margin: "auto",
               padding: "100px",
-              border: "15px solid #D4848F",
+              border: "15px solid #4A999C",
               borderRadius: "5%"
             }}
           >
-            <h1 style={{ color: "#4A999C" }}>Login</h1>
+            <h1 style={{ color: "#D4848F" }}>Register</h1>
             <label htmlFor="#email">Email</label>
-                        
             <FormInput
-              name="loginEmail"
+              name="email"
               type="text"
-              value={this.state.loginEmail}
+            //   value={this.state.loginEmail}
               onChange={this.handleChange}
               id="#email"
               placeholder="Email"
@@ -67,9 +59,9 @@ class LoginPage extends Component {
             <label htmlFor="#password">Password</label>
                         
             <FormInput
-              name="loginPassword"
+              name="password"
               type="password"
-              value={this.state.loginPassword}
+            //   value={this.state.loginPassword}
               onChange={this.handleChange}
               id="#password"
               placeholder="Password"
@@ -77,24 +69,25 @@ class LoginPage extends Component {
                         
             <Button
               type="submit"
-              style={{ backgroundColor: "#4A999C", borderColor: "#D4848F" }}
+              style={{ backgroundColor: "#D4848F", borderColor: "#4A999C" }}
             >
               {" "}
-              Log In{" "}
+              Register{" "}
             </Button>
+                      
           </FormGroup>
-          <Link to="/">
+          <Link to="/login">
             <Button
+              type="submit"
               style={{
-                backgroundColor: "#4A999C",
-                borderColor: "#D4848F",
+                backgroundColor: "#D4848F",
+                borderColor: "#4A999C",
                 height: "10vh"
               }}
             >
-              FUCKING WORTHLESS PIECE OF SHIT
+              Login Page
             </Button>
           </Link>
-          {/* {this.props.loginError && <p>{this.props.loginError}</p>} */}
         </Form>
       </>
     );
@@ -113,4 +106,4 @@ const mapActionsToProps = {
 export default connect(
   mapStateToProps,
   mapActionsToProps
-)(LoginPage);
+)(RegisterForm);

@@ -8,7 +8,8 @@ import {
   LoginPage,
   Inventory,
   Profile,
-  Storefront
+  Storefront,
+  RegisterPage
 } from "./components";
 
 import SearchUsers from "./components/SearchUsers";
@@ -29,7 +30,8 @@ class App extends Component {
         {/* Some of this will need to be protected -- is that part of MVP?? */}
         {/* <Link to="/">Home</Link> */}
         {/* <Link to="/other">Not Home</Link> */}
-        <Route exact path="/" component={LoginPage} />
+        <Route exact path="/" component={RegisterPage} />
+        <Route exact path="/login" component={LoginPage} />
         <Route exact path="/inventory" component={Inventory} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/profile/:profileId" component={SearchedUser} />
