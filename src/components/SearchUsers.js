@@ -17,62 +17,23 @@ import { Link } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 import Image from "react-bootstrap/Image";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { apiDomain, handleJsonResponse } from "../actions/constants";
 
 fontawesome.library.add(faSearch);
 
 export default class SearchUsers extends Component {
   state = {
-    stubUsers: [
-      {
-        username: "bob",
-        about: "I like turtles",
-        pictureLocation:
-          "https://gamepedia.cursecdn.com/mtgsalvation_gamepedia/d/d1/Robot_Chicken.jpg"
-      },
-      {
-        username: "bob1",
-        about: "I like turtles",
-        pictureLocation:
-          "https://gamepedia.cursecdn.com/mtgsalvation_gamepedia/d/d1/Robot_Chicken.jpg"
-      },
-      {
-        username: "bob2",
-        about: "I like turtles",
-        pictureLocation:
-          "https://gamepedia.cursecdn.com/mtgsalvation_gamepedia/d/d1/Robot_Chicken.jpg"
-      }
-    ],
-
-    listOfUsers: [
-      {
-        username: "bob",
-        about: "I like turtles",
-        pictureLocation:
-          "https://gamepedia.cursecdn.com/mtgsalvation_gamepedia/d/d1/Robot_Chicken.jpg"
-      },
-      {
-        username: "bob1",
-        about: "I like turtles",
-        pictureLocation:
-          "https://gamepedia.cursecdn.com/mtgsalvation_gamepedia/d/d1/Robot_Chicken.jpg"
-      },
-      {
-        username: "bob2",
-        about: "I like turtles",
-        pictureLocation:
-          "https://gamepedia.cursecdn.com/mtgsalvation_gamepedia/d/d1/Robot_Chicken.jpg"
-      }
-    ]
-  };
-
+    listOfUsers: [],
+    users: []
+  }
   handleSearch(event) {
     var searchBox = document.getElementById("search");
     var listOfUsers = [];
 
-    this.state.stubUsers.filter(filterUsers);
+    this.state.users.filter(filterUsers);
 
     function filterUsers(event) {
-      if (event.username.includes(searchBox.value)) {
+      if (event.email.includes(searchBox.value)) {
         listOfUsers.push(event);
       }
     }
@@ -80,7 +41,11 @@ export default class SearchUsers extends Component {
     this.setState({ listOfUsers: listOfUsers });
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    fetch (apiDomain + "/user").then(handleJsonResponse).then(users => {
+      this.setState({users, listOfUsers:users})
+    }) 
+  }
 
   //   componentWillReceiveProps({ location = {} }) {
   //     if (
@@ -116,7 +81,7 @@ export default class SearchUsers extends Component {
               <Button
                 theme="secondary"
                 onClick={() => {
-                  this.handleSearch(this.state.stubUsers);
+                  this.handleSearch(this.state.users);
                 }}
               >
                 Search
@@ -142,8 +107,8 @@ export default class SearchUsers extends Component {
                           src={user.pictureLocation}
                           style={{ width: "50px", padding: "7px" }}
                         />
-                        <Link to={`/profile/${user.username}`}>
-                          {user.username}
+                        <Link to={`/profile/${user.email}`}>
+                          {user.email}
                         </Link>
                       </td>
                       <td> {user.about}</td>

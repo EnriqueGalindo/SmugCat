@@ -49,9 +49,9 @@ export default class Storefront extends Component {
                     <Nav.Link href="*">All Events</Nav.Link>
                 </Nav>
                 <Nav>
-                    <Nav.Link href="*">My Inventory</Nav.Link>
-                    <Nav.Link href="*">Search Users</Nav.Link>
-                    <Nav.Link href="*">Logout</Nav.Link>
+                    <Nav.Link href="/inventory">My Inventory</Nav.Link>
+                    <Nav.Link href="/profile/search">Search Users</Nav.Link>
+                    <Nav.Link href="/">Logout</Nav.Link>
                 </Nav>
             </Navbar>
             <hr style={{marginBottom: "111.111px"}}></hr>

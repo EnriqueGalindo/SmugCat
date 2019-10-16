@@ -1,6 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+<<<<<<< src/components/Inventory.js
 import CustardModal from "./CustardModal"
+=======
+import { Container, Row, Col, 
+  Image, Navbar, NavDropdown, Nav, 
+  Jumbotron, InputGroup, FormControl 
+  } from 'react-bootstrap';
+import {
+  Button,
+  Card, CardHeader, CardTitle, CardImg, CardBody, CardFooter,
+  FormInput, FormRadio
+  } from "shards-react";
+>>>>>>> src/components/Inventory.js
 
 // import {} from "shards-react";
 // import {} from 'react-bootstrap';
@@ -30,6 +42,23 @@ class Inventory extends Component {
   render() {
     return (
       <React.Fragment>
+            <Jumbotron style={{margin: "0px"}}>
+                <h1>Hello, world!</h1>
+                <p>This is a simple hero unit, a simple jumbotron-style component for calling 
+                extra attention to featured content or information.</p>
+            </Jumbotron>
+            <Navbar>
+                <Nav className="mr-auto">
+                    <Nav.Link href="*">Upcoming</Nav.Link>
+                    <Nav.Link href="*">Near Me</Nav.Link>
+                    <Nav.Link href="*">All Events</Nav.Link>
+                </Nav>
+                <Nav>
+                    <Nav.Link href="/inventory">My Inventory</Nav.Link>
+                    <Nav.Link href="/profile/search">Search Users</Nav.Link>
+                    <Nav.Link href="/">Logout</Nav.Link>
+                </Nav>
+            </Navbar>
         <div>
           {this.getBoxes().map(boxName => {
             return <CustardModal boxName={boxName}/>
