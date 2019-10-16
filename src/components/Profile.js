@@ -146,7 +146,7 @@ class Profile extends Component {
                     name="mtg"
                     checked={this.state.selectedSport === "events"}
                     onChange={() => {
-                      this.changeSport("events");
+                      //this.changeSport("events");
                     }}
                   >
                     {" "}
@@ -164,7 +164,13 @@ class Profile extends Component {
             <Container>
               <Row>
                 <Col md={4}>
-                  <Card style={{ minWidth: "333px", background: "#D4848F" }}>
+                  <Card
+                    style={{
+                      minWidth: "333px",
+                      height: "800px",
+                      background: "#D4848F"
+                    }}
+                  >
                     <CardBody>
                       <CardTitle>
                         <h2 style={{ textAlign: "center", color: "#506485" }}>
@@ -196,7 +202,13 @@ class Profile extends Component {
                 </Col>
 
                 <Col md={4}>
-                  <Card style={{ minWidth: "333px", background: "#D4848F" }}>
+                  <Card
+                    style={{
+                      minWidth: "333px",
+                      height: "800px",
+                      background: "#D4848F"
+                    }}
+                  >
                     <CardBody>
                       <CardTitle>
                         <h2 style={{ textAlign: "center", color: "#506485" }}>
@@ -228,7 +240,13 @@ class Profile extends Component {
                 </Col>
 
                 <Col md={4}>
-                  <Card style={{ minWidth: "333px", background: "#D4848F" }}>
+                  <Card
+                    style={{
+                      minWidth: "333px",
+                      height: "800px",
+                      background: "#D4848F"
+                    }}
+                  >
                     <CardBody>
                       <CardTitle>
                         <h2 style={{ textAlign: "center", color: "#506485" }}>
@@ -274,7 +292,11 @@ class Profile extends Component {
                   return (
                     <Col md={4}>
                       <Card
-                        style={{ minWidth: "333px", background: "#D4848F" }}
+                        style={{
+                          minWidth: "333px",
+                          height: "800px",
+                          background: "#D4848F"
+                        }}
                       >
                         <CardBody>
                           <CardTitle>
