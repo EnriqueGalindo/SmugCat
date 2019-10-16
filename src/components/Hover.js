@@ -3,14 +3,16 @@ import { Tooltip, Button } from "shards-react";
 import { handleJsonResponse } from "../actions/constants"
 
 export default class TooltipExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.toggle = this.toggle.bind(this);
-    this.state = { open: false,
-                    imageURL:"",
-                     price: 0};
-  }
-  componentDidMount() {
+    constructor(props) {
+        super(props);
+        this.toggle = this.toggle.bind(this);
+        this.state = {
+            open: false,
+            imageURL: "",
+            price: 0
+        };
+    }
+    componentDidMount() {
 
 
         // console.log('stuff')
@@ -20,8 +22,8 @@ export default class TooltipExample extends React.Component {
             .then(skryfalCard => {
                 console.log('got this far')
                 this.setState({
-                imageURL: skryfalCard.image_uris.small,
-                price: skryfalCard.prices.usd
+                    imageURL: skryfalCard.image_uris.small,
+                    price: skryfalCard.prices.usd
                 })
             })
         // .catch(err => {
@@ -31,26 +33,27 @@ export default class TooltipExample extends React.Component {
         //     }));
         // });
 
-        }
+    }
 
-  toggle() {
-    this.setState({
-      open: !this.state.open
-    });
-  }
+    toggle() {
+        this.setState({
+            open: !this.state.open
+        });
+    }
 
-  render() {
-    return (
-      <div>
-        <Tooltip
-          open={this.state.open}
-          target={this.props.target}
-          toggle={this.toggle}
-        >
-          <img src={this.state.imageURL}/>
-          <p>price ${this.state.price}</p>
-        </Tooltip>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <Tooltip
+                    placement="left"
+                    open={this.state.open}
+                    target={this.props.target}
+                    toggle={this.toggle}
+                >
+                    <img src={this.state.imageURL} />
+                    <p>price ${this.state.price}</p>
+                </Tooltip>
+            </div>
+        );
+    }
 }

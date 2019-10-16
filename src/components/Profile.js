@@ -76,9 +76,8 @@ class Profile extends Component {
 
             <Navbar>
                 <Nav className="mr-auto">
-                    <Nav.Link href="*">Upcoming</Nav.Link>
-                    <Nav.Link href="*">Near Me</Nav.Link>
-                    <Nav.Link href="*">All Events</Nav.Link>
+                    <Nav.Link href="/profile">Profile</Nav.Link>
+                    
                 </Nav>
                 <Nav>
                     <Nav.Link href="/inventory">My Inventory</Nav.Link>
