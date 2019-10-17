@@ -58,7 +58,7 @@ class Inventory extends Component {
               borderRadius: "10px",
               display: "flex",
               justifyContent: "space-around"
-            }>
+            }}>
                 <Nav className="mr-auto">
                     <Nav.Link href="/profile">Profile</Nav.Link>
                 </Nav>
