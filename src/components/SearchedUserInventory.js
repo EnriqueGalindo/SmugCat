@@ -24,6 +24,7 @@ import {
   FormInput,
   FormRadio
 } from "shards-react";
+import { Link } from "react-router-dom";
 import { apiDomain, handleJsonResponse } from "../actions/constants";
 
 // import {} from "shards-react";
@@ -107,9 +108,9 @@ class SearchedUserInventory extends Component {
               }}
             >
               <Nav>
-                <Nav.Link href="/profile">My Profile</Nav.Link>
-                <Nav.Link href="/profile/search">Search Users</Nav.Link>
-                <Nav.Link href="/">Logout</Nav.Link>
+                <Nav.Link as={Link} to={`/profile/${this.state.searchedUser.username}`}>{this.state.searchedUser.username} Profile</Nav.Link>
+                <Nav.Link as={Link} to="/search">Search Users</Nav.Link>
+                <Nav.Link as={Link} to="/">Logout</Nav.Link>
               </Nav>
             </Navbar>
             <br />

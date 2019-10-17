@@ -24,6 +24,7 @@ import {
   FormInput,
   FormRadio
 } from "shards-react";
+import { Link } from "react-router-dom";
 
 // import {} from "shards-react";
 // import {} from 'react-bootstrap';
@@ -87,9 +88,9 @@ class Inventory extends Component {
               }}
             >
               <Nav>
-                <Nav.Link href="/profile">My Profile</Nav.Link>
-                <Nav.Link href="/profile/search">Search Users</Nav.Link>
-                <Nav.Link href="/">Logout</Nav.Link>
+                <Nav.Link as={Link} to="/profile">My Profile</Nav.Link>
+                <Nav.Link as={Link} to="/search">Search Users</Nav.Link>
+                <Nav.Link as={Link} to="/">Logout</Nav.Link>
               </Nav>
             </Navbar>
             <br />

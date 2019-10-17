@@ -26,6 +26,7 @@ import {
   FormInput,
   FormRadio
 } from "shards-react";
+import { Link } from "react-router-dom";
 
 //I'm sure there is a way to do this with import
 //but I've gotten it to work this way...
@@ -92,13 +93,18 @@ class SearchedUser extends Component {
 
             <Navbar>
               <Nav>
-                <Nav.Link
-                  href={`/profile/${this.state.searchedUser.username}/inventory`}
+              <Nav.Link
+                  as={Link} to={`/inventory`}
                 >
                   My Inventory
                 </Nav.Link>
-                <Nav.Link href="/profile/search">Search Users</Nav.Link>
-                <Nav.Link href="/">Logout</Nav.Link>
+                <Nav.Link
+                  as={Link} to={`/profile/${this.state.searchedUser.username}/inventory`}
+                >
+                  {this.state.searchedUser.username} Inventory
+                </Nav.Link>
+                <Nav.Link as={Link} to="/search">Search Users</Nav.Link>
+                <Nav.Link as={Link} to="/">Logout</Nav.Link>
               </Nav>
             </Navbar>
             <hr style={{ marginBottom: "111.111px" }}></hr>

@@ -43,7 +43,7 @@ class App extends Component {
           component={SearchedUserInventory}
         />
         <Route exact path="/profile/nearMe" component={Profile} />
-        <Route exact path="/profile/search" component={SearchUsers} />
+        <Route exact path="/search" component={SearchUsers} />
         <Route exact path="/create/store" />
         <Route exact path="/create/colllector" />
         <Route exact path="/storefront" component={Storefront} />
