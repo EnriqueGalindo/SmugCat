@@ -25,6 +25,7 @@ import {
   FormRadio
 } from "shards-react";
 import { Link } from "react-router-dom";
+import { apiDomain, handleJsonResponse } from "../actions/constants";
 
 // import {} from "shards-react";
 // import {} from 'react-bootstrap';
@@ -32,10 +33,29 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css";
 import { differenceInCalendarQuarters } from "date-fns";
 
-class Inventory extends Component {
+class SearchedUserInventory extends Component {
+  state = {
+    searchedUser: { cards: [] }
+  };
+
+  componentDidMount() {
+    fetch(apiDomain + "/user")
+      .then(handleJsonResponse)
+      .then(users => {
+        const pathname = this.props.match.params.profileId;
+        this.setState({ users, listOfUsers: users });
+        for (let i = 0; i < this.state.users.length; i++) {
+          if (pathname === this.state.users[i].username) {
+            this.setState({ searchedUser: this.state.users[i] });
+            console.log(this.state.searchedUser);
+          }
+        }
+      });
+  }
+
   getBoxes() {
     const boxNames = [];
-    this.props.user.cards.forEach(card => {
+    this.state.searchedUser.cards.forEach(card => {
       card.locations.forEach(location => {
         if (boxNames.includes(location.location)) {
           //no operation
@@ -75,7 +95,7 @@ class Inventory extends Component {
                 borderRadius: "10px"
               }}
             >
-              <h1>Hello, {this.props.user.username}!</h1>
+              <h1>Hello, {this.state.searchedUser.username}!</h1>
               <p>Welcome to your inventory page!</p>
             </Jumbotron>
             <Navbar
@@ -88,7 +108,7 @@ class Inventory extends Component {
               }}
             >
               <Nav>
-                <Nav.Link as={Link} to="/profile">My Profile</Nav.Link>
+                <Nav.Link as={Link} to={`/profile/${this.state.searchedUser.username}`}>{this.state.searchedUser.username} Profile</Nav.Link>
                 <Nav.Link as={Link} to="/search">Search Users</Nav.Link>
                 <Nav.Link as={Link} to="/">Logout</Nav.Link>
               </Nav>
@@ -104,7 +124,10 @@ class Inventory extends Component {
               >
                 {this.getBoxes().map(boxName => {
                   return (
-                    <CustardModal user={this.props.user} boxName={boxName} />
+                    <CustardModal
+                      user={this.state.searchedUser}
+                      boxName={boxName}
+                    />
                   );
                 })}
               </Row>
@@ -119,10 +142,4 @@ class Inventory extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    user: state.auth.login
-  };
-};
-
-export default connect(mapStateToProps)(Inventory);
+export default SearchedUserInventory;

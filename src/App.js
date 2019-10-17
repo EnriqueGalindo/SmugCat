@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css";
 import { Route } from "react-router-dom";
-import "./App.css"
+import "./App.css";
 
 import {
   TestComponent,
@@ -15,6 +15,7 @@ import {
 
 import SearchUsers from "./components/SearchUsers";
 import SearchedUser from "./components/SearchedUser";
+import SearchedUserInventory from "./components/SearchedUserInventory";
 
 class App extends Component {
   //This is the Table of Contents for our app.
@@ -36,8 +37,13 @@ class App extends Component {
         <Route exact path="/inventory" component={Inventory} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/profile/:profileId" component={SearchedUser} />
+        <Route
+          exact
+          path="/profile/:profileId/inventory"
+          component={SearchedUserInventory}
+        />
         <Route exact path="/profile/nearMe" component={Profile} />
-        <Route exact path="/profile/search" component={SearchUsers} />
+        <Route exact path="/search" component={SearchUsers} />
         <Route exact path="/create/store" />
         <Route exact path="/create/colllector" />
         <Route exact path="/storefront" component={Storefront} />

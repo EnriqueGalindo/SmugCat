@@ -25,7 +25,7 @@ export default class SearchUsers extends Component {
   state = {
     listOfUsers: [],
     users: []
-  }
+  };
   handleSearch(event) {
     var searchBox = document.getElementById("search");
     var listOfUsers = [];
@@ -33,7 +33,7 @@ export default class SearchUsers extends Component {
     this.state.users.filter(filterUsers);
 
     function filterUsers(event) {
-      if (event.email.includes(searchBox.value)) {
+      if (event.username.includes(searchBox.value)) {
         listOfUsers.push(event);
       }
     }
@@ -42,29 +42,12 @@ export default class SearchUsers extends Component {
   }
 
   componentDidMount() {
-    fetch (apiDomain + "/user").then(handleJsonResponse).then(users => {
-      this.setState({users, listOfUsers:users})
-    }) 
+    fetch(apiDomain + "/user")
+      .then(handleJsonResponse)
+      .then(users => {
+        this.setState({ users, listOfUsers: users });
+      });
   }
-
-  //   componentWillReceiveProps({ location = {} }) {
-  //     if (
-  //       location.pathname === "/users" &&
-  //       location.pathname !== this.props.location.pathname
-  //     ) {
-  //       this.getUsers();
-  //     }
-  //   }
-
-  //   getUsers() {
-  //     get("/api/users").then(({ data }) => {
-  //       const { users } = data;
-
-  //       this.setState({
-  //         users: data.users
-  //       });
-  //     });
-  //   }
 
   render() {
     return (
@@ -107,8 +90,8 @@ export default class SearchUsers extends Component {
                           src={user.pictureLocation}
                           style={{ width: "50px", padding: "7px" }}
                         />
-                        <Link to={`/profile/${user.email}`}>
-                          {user.email}
+                        <Link to={`/profile/${user.username}`}>
+                          {user.username}
                         </Link>
                       </td>
                       <td> {user.about}</td>
