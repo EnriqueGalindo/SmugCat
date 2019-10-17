@@ -20,11 +20,13 @@ export default class BasicModalExample extends React.Component {
     return (
       <div>
         <Card style={{
-          backgroundColor: "#D0D0BD",
+          backgroundColor: "#506485",
           minWidth: "300px"
         }}>
           <CardHeader style={{
-            textAlign: "center"
+            textAlign: "center",
+            color: "#D4848F",
+            fontSize: "30px"
           }}>{this.props.boxName}</CardHeader>
           <CardBody style={{
             display: "flex",

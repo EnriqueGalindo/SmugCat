@@ -40,18 +40,19 @@ class Inventory extends Component {
     return (
       <React.Fragment>
         <div style={{
-          backgroundColor: "#D0D0BD",
+          backgroundColor: "#506485",
           border: "25px solid black"
         }}>
         <Container className="container" style={{
-          backgroundColor: "#506485",
+          backgroundColor: "#D0D0BD",
           height: "100vh"
         }}>
           <br />
-            <Jumbotron style={{margin: "0px", backgroundColor: "#D0D0BD", border: "1px solid #4A999C", borderRadius: "10px"}}>
-                <h1>Hello, {this.props.user.username}!</h1>
+            <Jumbotron style={{margin: "0px", backgroundColor: "#506485", border: "1px solid #4A999C", borderRadius: "10px", color: "#D4848F"}}>
+                <h1 style={{color: "#D4848F"}}>Hello, {this.props.user.username}!</h1>
                 <p>Welcome to your inventory page!</p>
             </Jumbotron>
+            <br />
             <Navbar style={{
               backgroundColor: "#D4848F",
               border: "1px solid #4A999C",
@@ -65,8 +66,7 @@ class Inventory extends Component {
                     <Nav.Link href="/">Logout</Nav.Link>
                 </Nav>
             </Navbar>
-            <br />
-            <br />
+            <hr style={{ marginBottom: "111.111px" }}></hr>
         <div>
           <Row style={{
             display: "flex",

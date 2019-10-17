@@ -66,20 +66,31 @@ class Profile extends Component {
       <div class="profile-wrapper" style={{ background: "#506485" }}>
         <React.Fragment>
           <Container
-            style={{ marginBottom: "111.11px", background: "#D0D0BD" }}
+            style={{
+              background: "#D0D0BD"
+            }}
           >
+            <br />
             <Jumbotron style={{ margin: "0px", background: "#506485" }}>
               <h1 style={{ textAlign: "center", color: "#D4848F" }}>
-                Magic The Gathering
+                Smug Cat
               </h1>
             </Jumbotron>
-
-            <Navbar>
-                <Nav>
-                    <Nav.Link href="/inventory">My Inventory</Nav.Link>
-                    <Nav.Link href="/profile/search">Search Users</Nav.Link>
-                    <Nav.Link href="/">Logout</Nav.Link>
-                </Nav>
+            <br />
+            <Navbar
+              style={{
+                backgroundColor: "#D4848F",
+                border: "1px solid #4A999C",
+                borderRadius: "10px",
+                display: "flex",
+                justifyContent: "space-around"
+              }}
+            >
+              <Nav>
+                <Nav.Link href="/inventory">My Inventory</Nav.Link>
+                <Nav.Link href="/profile/search">Search Users</Nav.Link>
+                <Nav.Link href="/">Logout</Nav.Link>
+              </Nav>
             </Navbar>
             <hr style={{ marginBottom: "111.111px" }}></hr>
 
@@ -88,7 +99,7 @@ class Profile extends Component {
                 <Image
                   src="https://www.ibj.com/ext/resources/mugs-Large/P/priddy-shane-mug.jpg"
                   roundedCircle
-                  style={{ border: "2px solid black"}}
+                  style={{ border: "2px solid black" }}
                 />
               </Col>
 
@@ -96,11 +107,12 @@ class Profile extends Component {
                 <h2 style={{ color: "#506485" }}>{this.props.user.email}</h2>
                 <br></br>
                 <p style={{ textAlign: "justify" }}>
-                Family Time Games is a game store concept that encourages games for
-                 families and groups of friends. This idea is to encourage spending 
-                 time with your kids, friends, siblings, and spouse having a fun time. 
-                 It is a hub of laughter for all visitors. Staff spends time teaching 
-                 new games to customers and inspiring both competitive and cooperative play
+                  Family Time Games is a game store concept that encourages
+                  games for families and groups of friends. This idea is to
+                  encourage spending time with your kids, friends, siblings, and
+                  spouse having a fun time. It is a hub of laughter for all
+                  visitors. Staff spends time teaching new games to customers
+                  and inspiring both competitive and cooperative play
                 </p>
               </Col>
 
@@ -182,7 +194,7 @@ class Profile extends Component {
                       <Button
                         href="https://www.cfbevents.com/mtgcolumbus"
                         theme="info"
-                        style={{ width: "80%" }}
+                        style={{ width: "80%", backgroundColor: "#4A999C" }}
                       >
                         Visit Site
                       </Button>
@@ -214,7 +226,7 @@ class Profile extends Component {
                       <Button
                         href="https://allevents.in/mobile/amp-event.php?event_id=1000073336795329"
                         theme="info"
-                        style={{ width: "80%" }}
+                        style={{ width: "80%", backgroundColor: "#4A999C" }}
                       >
                         Visit Site
                       </Button>
@@ -247,7 +259,7 @@ class Profile extends Component {
                       <Button
                         href="https://www.cfbevents.com/mtgphoenix"
                         theme="info"
-                        style={{ width: "80%" }}
+                        style={{ width: "80%", backgroundColor: "#4A999C" }}
                       >
                         Visit Site
                       </Button>
@@ -269,12 +281,20 @@ class Profile extends Component {
                   return (
                     <Col md={4}>
                       <Card
-                        style={{ minWidth: "333px", background: "#D4848F", minHeight: "731px" }}
+                        style={{
+                          minWidth: "333px",
+                          background: "#D4848F",
+                          minHeight: "731px"
+                        }}
                       >
                         <CardBody>
                           <CardTitle>
                             <h2
-                              style={{ textAlign: "center", color: "#506485", minHeight: "144px" }}
+                              style={{
+                                textAlign: "center",
+                                color: "#506485",
+                                minHeight: "144px"
+                              }}
                             >
                               {event.name}
                             </h2>
@@ -301,7 +321,7 @@ class Profile extends Component {
                           <Button
                             href={event.url} //this should be showing a URL...
                             theme="info"
-                            style={{ width: "80%" }}
+                            style={{ width: "80%", backgroundColor: "#4A999C" }}
                           >
                             Visit Site
                           </Button>
