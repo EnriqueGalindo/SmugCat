@@ -1,6 +1,6 @@
 import React from "react";
-import { Button, Modal, ModalBody, ModalHeader, Card, CardBody, CardHeader } from "shards-react";
-import Box from "./Box"
+import { Button, Modal, ModalBody, ModalHeader, Card, CardHeader, CardBody } from "shards-react";
+import Box2 from "./Box2"
 
 export default class BasicModalExample extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ export default class BasicModalExample extends React.Component {
         }}>
           <CardHeader style={{
             textAlign: "center"
-          }}>Box1</CardHeader>
+          }}>Box2</CardHeader>
           <CardBody style={{
             display: "flex",
             justifyContent: "center"
@@ -33,18 +33,17 @@ export default class BasicModalExample extends React.Component {
             <Button onClick={this.toggle} style={{
               backgroundColor: "#D4848F",
               borderColor: "#4A999C"
-            }}>{this.props.boxName}</Button>
+            }}>Inventory</Button>
           </CardBody>
           <Modal open={open} toggle={this.toggle}>
-            <ModalHeader style={{ display: "flex", justifyContent: "center", backgroundColor: "#8B6B89" }}>Cards</ModalHeader>
+          <ModalHeader style={{ display: "flex", justifyContent: "center", backgroundColor: "#8B6B89" }}>Cards</ModalHeader>
             <ModalBody
               style={{ maxHeight: "calc(100vh - 200px)", overflowY: "auto", backgroundColor: "#8B6B89" }}
             >
-              <Box boxName={this.props.boxName}/>
+              <Box2 />
             </ModalBody>
           </Modal>
         </Card>
-        
       </div>
     );
   }

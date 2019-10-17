@@ -39,29 +39,49 @@ class Inventory extends Component {
   render() {
     return (
       <React.Fragment>
-            <Jumbotron style={{margin: "0px"}}>
-                <h1>Hello, world!</h1>
-                <p>This is a simple hero unit, a simple jumbotron-style component for calling 
-                extra attention to featured content or information.</p>
+        <div style={{
+          backgroundColor: "#D0D0BD",
+          border: "25px solid black"
+        }}>
+        <Container className="container" style={{
+          backgroundColor: "#506485",
+          height: "100vh"
+        }}>
+          <br />
+            <Jumbotron style={{margin: "0px", backgroundColor: "#D0D0BD", border: "1px solid #4A999C", borderRadius: "10px"}}>
+                <h1>Hello, {this.props.user.username}!</h1>
+                <p>Welcome to your inventory page!</p>
             </Jumbotron>
-            <Navbar>
+            <Navbar style={{
+              backgroundColor: "#D4848F",
+              border: "1px solid #4A999C",
+              borderRadius: "10px",
+              display: "flex",
+              justifyContent: "space-around"
+            }>
                 <Nav className="mr-auto">
                     <Nav.Link href="/profile">Profile</Nav.Link>
                 </Nav>
                 <Nav>
-                    <Nav.Link href="/inventory">My Inventory</Nav.Link>
+                    <Nav.Link href="/profile">My Profile</Nav.Link>
                     <Nav.Link href="/profile/search">Search Users</Nav.Link>
                     <Nav.Link href="/">Logout</Nav.Link>
                 </Nav>
             </Navbar>
+            <br />
+            <br />
         <div>
-          {this.getBoxes().map(boxName => {
+          <Row style={{
+            display: "flex",
+            justifyContent: "space-around"
+          }}>
+              {this.getBoxes().map(boxName => {
             return <CustardModal boxName={boxName}/>
           })}
-        {/* this is a modal for box 1
-        <CustardModal1/>
-        {/*this is a modal for box 2 
-        <CustardModal2/> */}
+        
+        </Row>
+        
+      
         </div>
 
 
@@ -71,7 +91,8 @@ class Inventory extends Component {
         {/* <p>{JSON.stringify(this.props.user.cards[0].cardName)}</p> */}
         {/* <pre>{JSON.stringify(this.props.user, null, "\t")}</pre> */}
 
-
+        </Container>
+        </div>
       </React.Fragment>
     );
   }
