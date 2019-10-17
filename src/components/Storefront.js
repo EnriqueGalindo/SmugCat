@@ -32,10 +32,10 @@ export default class Storefront extends Component {
     render() {
         return (
         <React.Fragment>
-            <Container class="container">
+            <Container className="container">
 
             <Jumbotron>
-            <h1>Hello, world!</h1>
+            <h1>Hello, {this.state.auth.login.username}!</h1>
             <p>This is a simple hero unit, a simple jumbotron-style component for calling 
             extra attention to featured content or information.
             </p>

@@ -25,7 +25,7 @@ class Box2 extends Component {
 
                                 if (location.location === 'box2') {
                                     return (
-                                        <Card style={{ maxWidth: "300px", margin:"20px" }}>
+                                        <Card style={{ maxWidth: "300px", margin:"20px", backgroundColor: "#D0D0BD" }}>
                                             <CardHeader>Card Name: {card.cardName}</CardHeader>
                                             <CardBody>
                                                 <CardTitle>
