@@ -67,15 +67,22 @@ class Profile extends Component {
       <div class="profile-wrapper" style={{ background: "#506485" }}>
         <React.Fragment>
           <Container
-            style={{ marginBottom: "111.11px", background: "#D0D0BD" }}
+            style={{ background: "#D0D0BD" }}
           >
+            <br />
             <Jumbotron style={{ margin: "0px", background: "#506485" }}>
               <h1 style={{ textAlign: "center", color: "#D4848F" }}>
-                Magic The Gathering
+                Smug Cat
               </h1>
             </Jumbotron>
-
-            <Navbar>
+            <br />
+            <Navbar style={{
+                backgroundColor: "#D4848F",
+                border: "1px solid #4A999C",
+                borderRadius: "10px",
+                display: "flex",
+                justifyContent: "space-around"
+              }}>
                 <Nav>
                     <Nav.Link as={Link} to="/inventory">My Inventory</Nav.Link>
                     <Nav.Link as={Link} to="/search">Search Users</Nav.Link>
@@ -183,7 +190,7 @@ class Profile extends Component {
                       <Button
                         href="https://www.cfbevents.com/mtgcolumbus"
                         theme="info"
-                        style={{ width: "80%" }}
+                        style={{ width: "80%", backgroundColor: "#4A999C" }}
                       >
                         Visit Site
                       </Button>
@@ -215,7 +222,7 @@ class Profile extends Component {
                       <Button
                         href="https://allevents.in/mobile/amp-event.php?event_id=1000073336795329"
                         theme="info"
-                        style={{ width: "80%" }}
+                        style={{ width: "80%", backgroundColor: "#4A999C" }}
                       >
                         Visit Site
                       </Button>
@@ -248,7 +255,7 @@ class Profile extends Component {
                       <Button
                         href="https://www.cfbevents.com/mtgphoenix"
                         theme="info"
-                        style={{ width: "80%" }}
+                        style={{ width: "80%", backgroundColor: "#4A999C" }}
                       >
                         Visit Site
                       </Button>
@@ -302,7 +309,7 @@ class Profile extends Component {
                           <Button
                             href={event.url} //this should be showing a URL...
                             theme="info"
-                            style={{ width: "80%" }}
+                            style={{ width: "80%", backgroundColor: "#4A999C" }}
                           >
                             Visit Site
                           </Button>

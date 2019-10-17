@@ -85,13 +85,20 @@ class SearchedUser extends Component {
       <div class="profile-wrapper" style={{ background: "#506485" }}>
         <React.Fragment>
           <Container
-            style={{ marginBottom: "111.11px", background: "#D0D0BD" }}
+            style={{ background: "#D0D0BD" }}
           >
+            <br />
             <Jumbotron style={{ margin: "0px", background: "#506485" }}>
-              <h1 style={{ textAlign: "center", color: "#D4848F" }}></h1>
+              <h1 style={{ textAlign: "center", color: "#D4848F" }}>Smug Cat</h1>
             </Jumbotron>
-
-            <Navbar>
+            <br />
+            <Navbar style={{
+                backgroundColor: "#D4848F",
+                border: "1px solid #4A999C",
+                borderRadius: "10px",
+                display: "flex",
+                justifyContent: "space-around"
+              }}>
               <Nav>
               <Nav.Link
                   as={Link} to={`/inventory`}
@@ -205,7 +212,7 @@ class SearchedUser extends Component {
                       <Button
                         href="https://www.cfbevents.com/mtgcolumbus"
                         theme="info"
-                        style={{ width: "80%" }}
+                        style={{ width: "80%", backgroundColor: "#4A999C" }}
                       >
                         Visit Site
                       </Button>
@@ -237,7 +244,7 @@ class SearchedUser extends Component {
                       <Button
                         href="https://allevents.in/mobile/amp-event.php?event_id=1000073336795329"
                         theme="info"
-                        style={{ width: "80%" }}
+                        style={{ width: "80%", backgroundColor: "#4A999C" }}
                       >
                         Visit Site
                       </Button>
@@ -270,7 +277,7 @@ class SearchedUser extends Component {
                       <Button
                         href="https://www.cfbevents.com/mtgphoenix"
                         theme="info"
-                        style={{ width: "80%" }}
+                        style={{ width: "80%", backgroundColor: "#4A999C" }}
                       >
                         Visit Site
                       </Button>
@@ -332,7 +339,7 @@ class SearchedUser extends Component {
                           <Button
                             href={event.url} //this should be showing a URL...
                             theme="info"
-                            style={{ width: "80%" }}
+                            style={{ width: "80%", backgroundColor: "#4A999C" }}
                           >
                             Visit Site
                           </Button>

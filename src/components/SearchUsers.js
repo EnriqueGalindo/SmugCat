@@ -51,7 +51,8 @@ export default class SearchUsers extends Component {
 
   render() {
     return (
-      <Container>
+      <div style={{backgroundColor: "#506485"}}>
+      <Container style={{backgroundColor: "#D0D0BD", height: "100vh"}}>
         <Row>
           <InputGroup seamless size="lg">
             <InputGroupAddon type="prepend">
@@ -103,6 +104,7 @@ export default class SearchUsers extends Component {
           </Col>
         </Row>
       </Container>
+      </div>
     );
   }
 }
