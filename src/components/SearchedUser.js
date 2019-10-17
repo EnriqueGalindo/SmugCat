@@ -92,7 +92,11 @@ class SearchedUser extends Component {
 
             <Navbar>
               <Nav>
-                <Nav.Link href="/inventory">My Inventory</Nav.Link>
+                <Nav.Link
+                  href={`/profile/${this.state.searchedUser.username}/inventory`}
+                >
+                  My Inventory
+                </Nav.Link>
                 <Nav.Link href="/profile/search">Search Users</Nav.Link>
                 <Nav.Link href="/">Logout</Nav.Link>
               </Nav>

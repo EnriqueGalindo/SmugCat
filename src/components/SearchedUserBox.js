@@ -14,13 +14,28 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css";
 
-class Box1 extends Component {
+class SearchedUserBox extends Component {
+  componentDidMount() {
+    fetch(apiDomain + "/user")
+      .then(handleJsonResponse)
+      .then(users => {
+        const pathname = this.props.match.params.profileId;
+        this.setState({ users, listOfUsers: users });
+        for (let i = 0; i < this.state.users.length; i++) {
+          console.log(this.state.users[i]);
+          if (pathname === this.state.users[i].username) {
+            this.setState({ searchedUser: this.state.users[i] });
+          }
+        }
+      });
+  }
+
   render() {
     return (
       <React.Fragment>
         <div>
           {/* {() => this.getCardsatLocation(this.props.user.cards, "box1")} */}
-          {this.props.user.cards.map(card => {
+          {this.state.searchedUser.cards.map(card => {
             return card.locations.map(location => {
               const cardId = card.cardName
                 .replace(" ", "-")
@@ -54,10 +69,4 @@ class Box1 extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     user: state.auth.login
-//   };
-// };
-
-export default Box1;
+export default SearchedUserBox;
