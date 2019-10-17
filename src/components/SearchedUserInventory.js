@@ -75,14 +75,14 @@ class SearchedUserInventory extends Component {
       <React.Fragment>
         <div
           style={{
-            backgroundColor: "#D0D0BD",
+            backgroundColor: "#506485",
             border: "25px solid black"
           }}
         >
           <Container
             className="container"
             style={{
-              backgroundColor: "#506485",
+              backgroundColor: "#D0D0BD",
               height: "100vh"
             }}
           >
@@ -90,14 +90,16 @@ class SearchedUserInventory extends Component {
             <Jumbotron
               style={{
                 margin: "0px",
-                backgroundColor: "#D0D0BD",
+                backgroundColor: "#506485",
                 border: "1px solid #4A999C",
-                borderRadius: "10px"
+                borderRadius: "10px",
+                color: "#D0D0BD"
               }}
             >
-              <h1>Hello, {this.state.searchedUser.username}!</h1>
+              <h1 style={{color: "#D0D0BD"}}>Hello, {this.state.searchedUser.username}!</h1>
               <p>Welcome to your inventory page!</p>
             </Jumbotron>
+            <br />
             <Navbar
               style={{
                 backgroundColor: "#D4848F",
@@ -108,6 +110,7 @@ class SearchedUserInventory extends Component {
               }}
             >
               <Nav>
+                <Nav.Link as={Link} to="/profile">My Profile</Nav.Link>
                 <Nav.Link as={Link} to={`/profile/${this.state.searchedUser.username}`}>{this.state.searchedUser.username} Profile</Nav.Link>
                 <Nav.Link as={Link} to="/search">Search Users</Nav.Link>
                 <Nav.Link as={Link} to="/">Logout</Nav.Link>

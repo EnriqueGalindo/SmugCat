@@ -68,9 +68,9 @@ class LoginPage extends Component {
                 maxWidth: "400px"
               }}
             >
-              <p>Track Prices!</p>
-              <p>Find Events!</p>
-              <p>Browse Collections!</p>
+              <p>Track Prices</p>
+              <p>Find Events</p>
+              <p>Browse Collections</p>
             </FormGroup>
           </Form>
           <Col md={4} className="center-flex-login">
