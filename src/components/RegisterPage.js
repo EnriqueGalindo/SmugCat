@@ -3,6 +3,11 @@ import { Form, FormGroup, FormInput, Button } from "shards-react";
 import { Link } from "react-router-dom";
 import { loginThenGoToInventory as login } from "../actions";
 import { connect } from "react-redux";
+import {
+  Col,
+  Image,
+
+} from "react-bootstrap";
 
 class RegisterForm extends Component {
   handleChange = event => {
@@ -20,7 +25,7 @@ class RegisterForm extends Component {
   render() {
     return (
       <>
-        <div
+        <div className="background-register"
           style={{
             border: "25px solid black",
             display: "flex",
@@ -58,6 +63,15 @@ class RegisterForm extends Component {
               <p>Browse Collections!</p>
             </FormGroup>
           </Form>
+          <Col md={4} className="center-flex-register">
+            <div>
+              <h1 style={{ color: "#D4848F", "textAlign": "center" }}>Smug Cat</h1>
+              <Image
+                src="smuglogo.png" style={{ height: "500px" }}
+              />
+            </div>
+          </Col>
+
           <Form
             style={{
               display: "flex",
@@ -68,7 +82,7 @@ class RegisterForm extends Component {
             }}
             onSubmit={this.handleRegister}
           >
-                      
+
             <FormGroup
               style={{
                 display: "flex",
@@ -93,9 +107,9 @@ class RegisterForm extends Component {
                 id="#email"
                 placeholder="Email"
               />
-                          
+
               <label htmlFor="#password">Password</label>
-                          
+
               <FormInput
                 name="password"
                 type="password"
@@ -104,7 +118,7 @@ class RegisterForm extends Component {
                 id="#password"
                 placeholder="Password"
               />
-                          
+
               <Button
                 type="submit"
                 style={{ backgroundColor: "#D4848F", borderColor: "#4A999C" }}
@@ -112,7 +126,7 @@ class RegisterForm extends Component {
                 {" "}
                 Register{" "}
               </Button>
-                        
+
             </FormGroup>
             <div
               style={{

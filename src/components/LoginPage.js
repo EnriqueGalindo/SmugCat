@@ -3,6 +3,11 @@ import { Form, FormGroup, FormInput, Button } from "shards-react";
 import { connect } from "react-redux";
 import { loginThenGoToInventory as login } from "../actions";
 import { Link } from "react-router-dom";
+import {
+  Col,
+  Image,
+
+} from "react-bootstrap";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css";
@@ -30,6 +35,7 @@ class LoginPage extends Component {
     return (
       <>
         <div
+          className="background-login"
           style={{
             border: "25px solid black",
             display: "flex",
@@ -67,6 +73,14 @@ class LoginPage extends Component {
               <p>Browse Collections!</p>
             </FormGroup>
           </Form>
+          <Col md={4} className="center-flex-login">
+            <div>
+              <h1 style={{ color: "#4A999C", "textAlign": "center" }}>Smug Cat</h1>
+              <Image
+                src="smuglogo.png" style={{ height: "500px" }}
+              />
+            </div>
+          </Col>
           <Form
             style={{
               display: "flex",
@@ -92,7 +106,7 @@ class LoginPage extends Component {
             >
               <h1 style={{ color: "#4A999C" }}>Login</h1>
               <label htmlFor="#email">Email</label>
-                          
+
               <FormInput
                 name="loginEmail"
                 type="text"
@@ -101,9 +115,9 @@ class LoginPage extends Component {
                 id="#email"
                 placeholder="Email"
               />
-                          
+
               <label htmlFor="#password">Password</label>
-                          
+
               <FormInput
                 name="loginPassword"
                 type="password"
@@ -112,7 +126,7 @@ class LoginPage extends Component {
                 id="#password"
                 placeholder="Password"
               />
-                          
+
               <Button
                 type="submit"
                 style={{ backgroundColor: "#4A999C", borderColor: "#D4848F" }}
