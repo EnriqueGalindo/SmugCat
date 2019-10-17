@@ -25,7 +25,7 @@ export default class BasicModalExample extends React.Component {
         }}>
           <CardHeader style={{
             textAlign: "center"
-          }}>Box1</CardHeader>
+          }}>{this.props.boxName}</CardHeader>
           <CardBody style={{
             display: "flex",
             justifyContent: "center"

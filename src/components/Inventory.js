@@ -59,9 +59,6 @@ class Inventory extends Component {
               display: "flex",
               justifyContent: "space-around"
             }}>
-                <Nav className="mr-auto">
-                    <Nav.Link href="/profile">Profile</Nav.Link>
-                </Nav>
                 <Nav>
                     <Nav.Link href="/profile">My Profile</Nav.Link>
                     <Nav.Link href="/profile/search">Search Users</Nav.Link>

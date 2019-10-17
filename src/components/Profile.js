@@ -75,10 +75,6 @@ class Profile extends Component {
             </Jumbotron>
 
             <Navbar>
-                <Nav className="mr-auto">
-                    <Nav.Link href="/profile">Profile</Nav.Link>
-                    
-                </Nav>
                 <Nav>
                     <Nav.Link href="/inventory">My Inventory</Nav.Link>
                     <Nav.Link href="/profile/search">Search Users</Nav.Link>
@@ -88,11 +84,11 @@ class Profile extends Component {
             <hr style={{ marginBottom: "111.111px" }}></hr>
 
             <Row>
-              <Col md={4}>
+              <Col md={4} className="center-flex">
                 <Image
-                  src={imgString}
+                  src="https://www.ibj.com/ext/resources/mugs-Large/P/priddy-shane-mug.jpg"
                   roundedCircle
-                  style={{ border: "2px solid black" }}
+                  style={{ border: "2px solid black"}}
                 />
               </Col>
 
@@ -100,12 +96,11 @@ class Profile extends Component {
                 <h2 style={{ color: "#506485" }}>{this.props.user.email}</h2>
                 <br></br>
                 <p style={{ textAlign: "justify" }}>
-                  This is the <b>profile page</b> on our{" "}
-                  <i>Magic the Gathering</i> app. This is the standard text
-                  provided in our profile. A user will be able to create their
-                  own profile descriptions (as well as uploading their own
-                  image) which will be saved in our database and loaded upon
-                  each visit.
+                Family Time Games is a game store concept that encourages games for
+                 families and groups of friends. This idea is to encourage spending 
+                 time with your kids, friends, siblings, and spouse having a fun time. 
+                 It is a hub of laughter for all visitors. Staff spends time teaching 
+                 new games to customers and inspiring both competitive and cooperative play
                 </p>
               </Col>
 
@@ -274,12 +269,12 @@ class Profile extends Component {
                   return (
                     <Col md={4}>
                       <Card
-                        style={{ minWidth: "333px", background: "#D4848F" }}
+                        style={{ minWidth: "333px", background: "#D4848F", minHeight: "731px" }}
                       >
                         <CardBody>
                           <CardTitle>
                             <h2
-                              style={{ textAlign: "center", color: "#506485" }}
+                              style={{ textAlign: "center", color: "#506485", minHeight: "144px" }}
                             >
                               {event.name}
                             </h2>
