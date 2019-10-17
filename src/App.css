@@ -1,0 +1,45 @@
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App-link {
+  color: #09d3ac;
+}
+
+.center-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-flex-login {
+  background-color: #8B6B89;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  
+}
+
+.background-login {
+  background-color: #8B6B89;
+}
+
+.background-register {
+  background-color: #506485;
+}
+
+.center-flex-register {
+  background-color: #506485;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  
+}
