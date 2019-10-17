@@ -42,7 +42,7 @@ export default class BasicModalExample extends React.Component {
             <ModalBody
               style={{ maxHeight: "calc(100vh - 200px)", overflowY: "auto", backgroundColor: "#8B6B89" }}
             >
-              <Box boxName={this.props.boxName}/>
+              <Box user={this.props.user} boxName={this.props.boxName}/>
             </ModalBody>
           </Modal>
         </Card>

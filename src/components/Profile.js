@@ -27,6 +27,7 @@ import {
   FormRadio
 } from "shards-react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 //I'm sure there is a way to do this with import
 //but I've gotten it to work this way...
