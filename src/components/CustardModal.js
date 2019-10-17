@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Modal, ModalBody, ModalHeader, Card, CardBody, CardHeader } from "shards-react";
-import Box1 from "./Box1";
+import Box from "./Box"
 
 export default class BasicModalExample extends React.Component {
   constructor(props) {
@@ -33,17 +33,18 @@ export default class BasicModalExample extends React.Component {
             <Button onClick={this.toggle} style={{
               backgroundColor: "#D4848F",
               borderColor: "#4A999C"
-            }}>Inventory</Button>
+            }}>{this.props.boxName}</Button>
           </CardBody>
           <Modal open={open} toggle={this.toggle}>
             <ModalHeader style={{ display: "flex", justifyContent: "center", backgroundColor: "#8B6B89" }}>Cards</ModalHeader>
             <ModalBody
               style={{ maxHeight: "calc(100vh - 200px)", overflowY: "auto", backgroundColor: "#8B6B89" }}
             >
-              <Box1 />
+              <Box boxName={this.props.boxName}/>
             </ModalBody>
           </Modal>
         </Card>
+        
       </div>
     );
   }

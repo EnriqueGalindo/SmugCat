@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getCards } from "../actions"
-import Box1 from "./Box1"
-import CustardModal1 from "./CustardModal1"
-import CustardModal2 from "./CustardModal2"
+import CustardModal from "./CustardModal"
 import { Container, Row, Col, 
   Image, Navbar, NavDropdown, Nav, 
   Jumbotron, InputGroup, FormControl 
@@ -18,10 +15,23 @@ import {
 // import {} from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css"
+import { differenceInCalendarQuarters } from "date-fns";
 
 
 class Inventory extends Component {
-
+  getBoxes() {
+    const boxNames = []
+    this.props.user.cards.forEach(card => {
+      card.locations.forEach(location =>{
+        if(boxNames.includes(location.location)){//no operation
+        }
+        else{
+          boxNames.push(location.location)
+        }
+      })
+    });
+    return boxNames
+  }
   // componentDidMount() {
   //   this.props.getCards();
   // }
@@ -42,19 +52,16 @@ class Inventory extends Component {
                 <h1>Hello, {this.props.user.username}!</h1>
                 <p>Welcome to your inventory page!</p>
             </Jumbotron>
-            <br />
             <Navbar style={{
               backgroundColor: "#D4848F",
               border: "1px solid #4A999C",
               borderRadius: "10px",
               display: "flex",
               justifyContent: "space-around"
-            }}>
-                {/* <Nav className="mr-auto">
-                    <Nav.Link href="*">Upcoming</Nav.Link>
-                    <Nav.Link href="*">Near Me</Nav.Link>
-                    <Nav.Link href="*">All Events</Nav.Link>
-                </Nav> */}
+            }>
+                <Nav className="mr-auto">
+                    <Nav.Link href="/profile">Profile</Nav.Link>
+                </Nav>
                 <Nav>
                     <Nav.Link href="/profile">My Profile</Nav.Link>
                     <Nav.Link href="/profile/search">Search Users</Nav.Link>
@@ -68,11 +75,13 @@ class Inventory extends Component {
             display: "flex",
             justifyContent: "space-around"
           }}>
-        {/*this is a modal for box 1 */}
-        <CustardModal1/>
-        {/*this is a modal for box 2 */}
-        <CustardModal2/>
+              {this.getBoxes().map(boxName => {
+            return <CustardModal boxName={boxName}/>
+          })}
+        
         </Row>
+        
+      
         </div>
 
 
@@ -95,12 +104,5 @@ const mapStateToProps = state => {
     user: state.auth.login
   };
 };
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     getCards: () => dispatch(getCards())
-//   }
-// }
-
 
 export default connect(mapStateToProps)(Inventory);
